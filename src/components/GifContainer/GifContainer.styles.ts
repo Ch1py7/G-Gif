@@ -22,13 +22,16 @@ export const GifInfo = styled.div`
   align-items: flex-end;
   width: 100%;
   height: 100%;
-  padding: 2rem;
+  padding: 1rem;
   overflow: hidden;
 `
 
 export const GifName = styled.h2`
-  font-size: clamp(1rem, 4vw, 2rem);
+  font-size: 2rem;
   color: #fdfdfd;
+  @media (max-width: 720px) {
+    font-size: 1.5rem;
+  }
 `
 
 export const GifData = styled.div`
