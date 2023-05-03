@@ -10,7 +10,7 @@ export const GifContainer = styled.div`
 export const GifImg = styled.img`
   width: 100%;
   height: auto;
-  border-radius: 2rem;
+  border-radius: 6px;
 `
 
 export const GifInfo = styled.div`
@@ -41,7 +41,7 @@ export const GifData = styled.div`
   align-items: flex-end;
   width: 100%;
   height: 100%;
-  border-radius: 2rem;
+  border-radius: 6px;
   transition: opacity 0.1s linear;
   opacity: 0;
   &:hover {

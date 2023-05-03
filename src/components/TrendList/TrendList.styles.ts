@@ -3,13 +3,13 @@ import styled from 'styled-components'
 export const TrendSection = styled.div`
   width: 100%;
   padding: 1rem 0;
-  border: 5px solid;
-  border-color: #202020 transparent #202020 transparent;
+  border-top: 4px solid #101010;
 `
 
 export const TrendInformation = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
 `
 
@@ -17,12 +17,15 @@ export const TrendTitle = styled.h2`
   font-size: 3rem;
   color: white;
   text-align: center;
+  @media (max-width: 720px) {
+    font-size: 2rem;
+  }
 `
 
 export const TrendImg = styled.img`
-  width: 20rem;
-  height: auto;
-  border-radius: 2rem;
+  width: 12rem;
+  height: 100%;
+  border-radius: 1rem;
 `
 
 export const TrendInfo = styled.div`
@@ -34,12 +37,12 @@ export const TrendInfo = styled.div`
   align-items: flex-end;
   width: 100%;
   height: 100%;
-  padding: 2rem;
+  padding: 1rem;
   overflow: hidden;
 `
 
 export const TrendName = styled.h2`
-  font-size: clamp(1rem, 4vw, 2rem);
+  font-size: 1rem;
   color: #fdfdfd;
 `
 
@@ -51,9 +54,9 @@ export const TrendData = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  width: 20rem;
+  width: 12rem;
   height: 100%;
-  border-radius: 2rem;
+  border-radius: 1rem;
   transition: opacity 0.1s linear;
   opacity: 0;
   &:hover {

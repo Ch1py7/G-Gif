@@ -6,5 +6,5 @@ export const GifsScreen = styled.div`
   justify-content: center;
   align-items: center;
   padding: 2rem 4rem;
-  gap: 2rem;
+  gap: 1rem;
 `

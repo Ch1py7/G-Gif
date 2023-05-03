@@ -19,14 +19,14 @@ export const Search: FC = (): ReactElement => {
 	}
 
 	return (
-		<S.SearchSection>
+		<>
 			<a href='/'>
 				<Wolf height={60} width={60} />
 			</a>
 			<S.SearchForm onSubmit={handleSubmit}>
 				<S.SearchInput type='text' placeholder='Search' onChange={handleChange} />
-				<Glass height={45} width={45} />
+				<Glass height={30} width={30} />
 			</S.SearchForm>
-		</S.SearchSection>
+		</>
 	)
 }

@@ -1,18 +1,12 @@
 import styled from 'styled-components'
 
-export const SearchSection = styled.div`
-  display: flex;
-  align-items: center;
-  width: 70%;
-`
-
 export const SearchForm = styled.form`
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 6rem;
+  width: 50%;
+  height: 4rem;
   margin: 2rem 0;
   @media (max-width: 520px) {
     height: 5rem;
@@ -26,7 +20,7 @@ export const SearchInput = styled.input`
   border: none;
   border-radius: 1rem;
   background-color: #202020;
-  font-size: 3rem;
+  font-size: 2rem;
   color: white;
   @media (max-width: 520px) {
     padding: 0 40% 0 2rem;
