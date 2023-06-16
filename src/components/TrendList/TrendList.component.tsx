@@ -20,7 +20,7 @@ export const TrendList: FC = (): ReactElement => {
 	return (
 		<S.TrendSection>
 			<S.TrendInformation>
-				<GraphUp width={40} height={40} />
+				<GraphUp width={30} height={30} />
 				<S.TrendTitle>Trending</S.TrendTitle>
 			</S.TrendInformation>
 			<Carousel>
@@ -28,8 +28,8 @@ export const TrendList: FC = (): ReactElement => {
 					return (
 						<div key={id} style={{ position: 'relative', height: 'content-fit' }}>
 							<S.TrendImg src={url} alt={username} />
-							<S.TrendData key={username}>
-								<a href={url} target='_BLANK' rel='noreferrer'>
+							<S.TrendData>
+								<a href={url} target='_BLANK' rel='noreferrer' title='go to gif page'>
 									<S.TrendInfo>
 										<S.TrendName>{username}</S.TrendName>
 									</S.TrendInfo>

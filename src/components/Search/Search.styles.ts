@@ -1,35 +1,30 @@
 import styled from 'styled-components'
+import { Icon } from '@iconify/react'
 
-export const SearchSection = styled.div`
-  display: flex;
-  align-items: center;
-  width: 70%;
-`
-
-export const SearchForm = styled.form`
-  position: relative;
+export const SearchSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 6rem;
-  margin: 2rem 0;
-  @media (max-width: 520px) {
-    height: 5rem;
-  }
+  gap: 2rem;
 `
 
 export const SearchInput = styled.input`
-  width: 90%;
-  height: 100%;
-  padding: 0 15% 0 2rem;
-  border: none;
-  border-radius: 1rem;
-  background-color: #202020;
-  font-size: 3rem;
-  color: white;
-  @media (max-width: 520px) {
-    padding: 0 40% 0 2rem;
-    font-size: 2rem;
-  }
+  width: 100%;
+  padding: 1rem;
+  padding-right: 3rem;
+  font-size: 2rem;
+  border: 1px solid #999c9d;
+  border-radius: 0.5rem;
+  outline: none;
+`
+
+export const SearchIcon = styled(Icon)`
+  position: absolute;
+  top: 50%;
+  right: 0;
+  height: 2rem;
+  width: 2rem;
+  color: #76797a;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
 `

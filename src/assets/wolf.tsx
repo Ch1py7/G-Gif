@@ -11,6 +11,7 @@ export const Wolf: FC<SvgTypes> = ({ width, height }): ReactElement => {
 			fill="#f0f0f0"
 			xmlns="http://www.w3.org/2000/svg"
 			color="#000000"
+			style={{ filter: 'drop-shadow( 0 0 2px cyan' }}
 		>
 			<title>wolf</title>
 			<path

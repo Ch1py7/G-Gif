@@ -2,14 +2,14 @@ import { FC, ReactElement } from 'react'
 import * as S from './GifsScreen.styles'
 import { Search } from 'components/Search'
 import { TrendList } from 'components/TrendList'
-import { GifList, GifListProps } from 'components/GifList'
+import { GifList } from 'components/GifList'
 
-export const GifsScreen: FC<GifListProps> = ({ params }): ReactElement => {
+export const GifsScreen: FC = (): ReactElement => {
 	return (
 		<S.GifsScreen>
 			<Search />
 			<TrendList />
-			<GifList params={params} />
+			<GifList />
 		</S.GifsScreen>
 	)
 }

@@ -32,7 +32,7 @@ export const CarouselList = styled.ul<CarouselListProps>`
   list-style: none;
   overflow: hidden;
   & > ${CarouselItem}:first-of-type {
-    margin-left: calc(50% - 10rem - ${(props) => props.current * 24}rem);
+    margin-left: calc(50% - 6rem - ${(props) => props.current * 16}rem);
   }
 `
 
