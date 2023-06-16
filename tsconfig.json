@@ -6,6 +6,7 @@
 			"@components": ["/components/*", "/components"],
       "@types": ["/types/*", "/types"],
       "@services": ["/services/*", "/services"],
+      "@hooks": ["/hooks/*", "/hooks"],
       "@context": ["/context/*", "/context"]
 		},
 		"target": "ESNext",
