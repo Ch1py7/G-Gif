@@ -1,37 +1,40 @@
-import { FC, ReactElement, useEffect, useState } from 'react'
-import { GetGifs } from 'services/GetGifs.services'
+import { useFetch } from 'hooks/useFetch'
+import { FC, ReactElement, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { GifTypes } from 'types/Gif.types'
 import * as S from './GifList.styles'
-import { GifContainer } from 'components/GifContainer'
 
-export interface GifListProps {
-	params: { keyword: string }
-}
+export const GifList: FC = (): ReactElement => {
+  const { keyword } = useParams()
+  const { data: gifsProps } = useFetch<GifTypes.GifProps>(keyword ?? 'gato')
+  const { data } = gifsProps ?? { data: [] }
+  const [isLike, setIsLike] = useState<string>('')
 
-export const GifList: FC<GifListProps> = ({ params }): ReactElement => {
-	const [isLoaded, setIsLoaded] = useState(false)
-	const [gifs, setGifs] = useState([{ id: '', username: '', url: '', fav: false }])
-	const { keyword } = params
+  const isFav = (gifId: string) => {
+    setIsLike(gifId)
+    setTimeout(() => {
+      setIsLike('')
+    }, 1000)
+  }
 
-	useEffect(() => {
-		setIsLoaded(true)
-		GetGifs({ keyword })
-			.then((gifs) => {
-				setGifs(gifs)
-				setIsLoaded(false)
-			})
-			.catch((error) => {
-				console.log(error)
-				setIsLoaded(false)
-			})
-	}, [keyword])
+  const like = {
+    animation: 'like 1s ease-in-out',
+  }
 
-	return (
-		<S.GifSection>
-			<S.GifList>
-				{gifs.map(({ id, username, url }) => {
-					return <GifContainer isLoaded={isLoaded} url={url} username={username} key={id} />
-				})}
-			</S.GifList>
-		</S.GifSection>
-	)
+  return (
+    <S.GifSection>
+      {data.map((gif) => (
+        <S.GifArticle key={gif.id}>
+          <S.GifImg
+            onDoubleClick={() => isFav(gif.id)}
+            src={gif.images.downsized_medium.url}
+            alt={gif.username}
+          />
+          {isLike === gif.id && (
+            <S.GifSvg style={like} icon='clarity:heart-solid' />
+          )}
+        </S.GifArticle>
+      ))}
+    </S.GifSection>
+  )
 }

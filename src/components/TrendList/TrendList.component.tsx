@@ -29,7 +29,7 @@ export const TrendList: FC = (): ReactElement => {
 						<div key={id} style={{ position: 'relative', height: 'content-fit' }}>
 							<S.TrendImg src={url} alt={username} />
 							<S.TrendData>
-								<a href={url} target='_BLANK' rel='noreferrer'>
+								<a href={url} target='_BLANK' rel='noreferrer' title='go to gif page'>
 									<S.TrendInfo>
 										<S.TrendName>{username}</S.TrendName>
 									</S.TrendInfo>

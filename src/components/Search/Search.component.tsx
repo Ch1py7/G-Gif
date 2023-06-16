@@ -1,32 +1,36 @@
-import React, { FC, ReactElement, useState } from 'react'
-import { useLocation } from 'wouter'
-import * as S from './Search.styles'
 import { Wolf } from 'assets/wolf'
-import { Search as Glass } from 'assets/search'
+import React, { FC, ReactElement, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import * as S from './Search.styles'
 
 export const Search: FC = (): ReactElement => {
-	const [userInput, setUserInput] = useState<string>('')
-	const [_, pushLocation] = useLocation()
+  const [userInput, setUserInput] = useState<string>('')
+  const navigate = useNavigate()
 
-	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-		event.preventDefault()
-		console.log(userInput)
-		pushLocation(`/gifs/${userInput}`)
-	}
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    navigate(`/gifs/${userInput}`)
+  }
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setUserInput(event.target.value)
-	}
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInput(event.target.value)
+  }
 
-	return (
-		<>
-			<a href='/'>
-				<Wolf height={60} width={60} />
-			</a>
-			<S.SearchForm onSubmit={handleSubmit}>
-				<S.SearchInput type='text' placeholder='Search' onChange={handleChange} />
-				<Glass height={30} width={30} />
-			</S.SearchForm>
-		</>
-	)
+  return (
+    <S.SearchSection>
+      <Link to='/' title='Go to home'>
+        <Wolf height={60} width={60} />
+      </Link>
+      <form style={{ position: 'relative' }} onSubmit={handleSubmit}>
+        <S.SearchInput
+          type='text'
+          placeholder='Search'
+          onChange={handleChange}
+        />
+        <Link to={`/gifs/${userInput}`} title='Go to gifs'>
+          <S.SearchIcon icon='ph:magnifying-glass-bold' />
+        </Link>
+      </form>
+    </S.SearchSection>
+  )
 }
