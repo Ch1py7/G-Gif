@@ -1,4 +1,4 @@
-import { GifTypes } from 'types/Gif.types'
+import { Data } from 'types/Gif.types'
 
 export const GetTrend = async () => {
 	const ApiKey = 'UvaBS1s7wvTYxW08f706idueZ9uvr31b'
@@ -7,7 +7,7 @@ export const GetTrend = async () => {
 	const res = await fetch(ApiUrl)
 	const response = await res.json()
 	const { data } = response
-	const trend = data.map((trend: GifTypes.Data) => {
+	const trend = data.map((trend: Data) => {
 		const { id, username } = trend
 		const { url } = trend.images.downsized_medium
 		return { id, username, url }

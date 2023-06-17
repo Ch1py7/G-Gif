@@ -1,14 +1,16 @@
+import { useFavorite } from 'hooks/useFavorite'
 import { useFetch } from 'hooks/useFetch'
 import { FC, ReactElement, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { GifTypes } from 'types/Gif.types'
+import { GifProps } from 'types/Gif.types'
 import * as S from './GifList.styles'
 
 export const GifList: FC = (): ReactElement => {
   const { keyword } = useParams()
-  const { data: gifsProps } = useFetch<GifTypes.GifProps>(keyword ?? 'gato')
+  const { data: gifsProps } = useFetch<GifProps>(keyword ?? 'gato')
   const { data } = gifsProps ?? { data: [] }
   const [isLike, setIsLike] = useState<string>('')
+  const { addFav } = useFavorite()
 
   const isFav = (gifId: string) => {
     setIsLike(gifId)
@@ -26,7 +28,9 @@ export const GifList: FC = (): ReactElement => {
       {data.map((gif) => (
         <S.GifArticle key={gif.id}>
           <S.GifImg
-            onDoubleClick={() => isFav(gif.id)}
+            onDoubleClick={() => {
+              isFav(gif.id), addFav(gif.images.downsized_medium.url)
+            }}
             src={gif.images.downsized_medium.url}
             alt={gif.username}
           />
