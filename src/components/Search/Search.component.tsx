@@ -9,7 +9,11 @@ export const Search: FC = (): ReactElement => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    navigate(`/gifs/${userInput}`)
+    if (userInput === '' || userInput === ' ') {
+      navigate('/')
+    } else {
+      navigate(`/gifs/${userInput}`)
+    }
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
