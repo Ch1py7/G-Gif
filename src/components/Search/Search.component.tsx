@@ -1,7 +1,7 @@
-import { Wolf } from 'assets/wolf'
 import React, { FC, ReactElement, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import * as S from './Search.styles'
+import { Icon } from '@iconify/react'
 
 export const Search: FC = (): ReactElement => {
   const [userInput, setUserInput] = useState<string>('')
@@ -18,19 +18,23 @@ export const Search: FC = (): ReactElement => {
 
   return (
     <S.SearchSection>
-      <Link to='/' title='Go to home'>
-        <Wolf height={60} width={60} />
+      <Link to='/' title='Go to home' style={{ justifySelf: 'start' }}>
+        <Icon icon='emojione:letter-g' height={60} width={60} />
       </Link>
-      <form style={{ position: 'relative' }} onSubmit={handleSubmit}>
+      <S.SearchForm onSubmit={handleSubmit}>
         <S.SearchInput
           type='text'
           placeholder='Search'
           onChange={handleChange}
         />
         <Link to={`/gifs/${userInput}`} title='Go to gifs'>
-          <S.SearchIcon icon='ph:magnifying-glass-bold' />
+          <S.Icon icon='ph:magnifying-glass-bold' />
         </Link>
-      </form>
+      </S.SearchForm>
+      <S.Anchor href='/favorites' title='Go to favorites'>
+        <Icon style={{ color: 'red' }} icon='ph:heart-fill' />
+        <S.SearchSpan>Favorites!</S.SearchSpan>
+      </S.Anchor>
     </S.SearchSection>
   )
 }
