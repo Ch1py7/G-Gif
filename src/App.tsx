@@ -1,3 +1,4 @@
+import { FavPage } from 'components/FavPage'
 import { GifsScreen } from 'components/GifsScreen'
 import { MainScreen } from 'components/MainScreen'
 import { FC, ReactElement } from 'react'
@@ -8,6 +9,7 @@ export const App: FC = (): ReactElement => {
     <Routes>
       <Route element={<MainScreen />} path='/' />
       <Route element={<GifsScreen />} path='/gifs/:keyword' />
+      <Route element={<FavPage />} path='/favorites' />
     </Routes>
   )
 }

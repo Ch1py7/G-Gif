@@ -20,4 +20,9 @@ export module LocalStorageService {
     delete fav[id]
     localStorage.setItem('fav', JSON.stringify(fav))
   }
+
+  export const addFav = (url: string) => {
+    const id = crypto.randomUUID()
+    LocalStorageService.setFav({ [id]: url })
+  }
 }
