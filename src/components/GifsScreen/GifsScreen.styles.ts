@@ -5,6 +5,5 @@ export const GifsScreen = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
   gap: 1rem;
 `
